@@ -1,0 +1,9 @@
+.app-container{
+    background-color: rgba(0,104,204,0.7);
+    height: 100vh;
+    border-radius: 3px;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+

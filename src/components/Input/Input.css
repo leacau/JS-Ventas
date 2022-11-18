@@ -1,0 +1,28 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    border: 1px solid #fff;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    align-items: center;
+}
+
+.form-input{
+    width: 100%;
+    margin: 1rem;
+}
+
+.btn-buscar{
+    width: 50%;
+    background-color: rgba(0,104,204);
+    color: #fff;
+    margin: 1rem;
+}
+
+/* .btn-buscar:hover{
+    background-color: rgba(0,104,204);
+    color: #fff;
+} */
+
