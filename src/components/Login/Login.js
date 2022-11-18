@@ -1,31 +1,47 @@
+import './Login.css';
+
 import { useAuth } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export function Login() {
     const [user, setUser] = useState({ email: '', password: '' });
+    const [error, setError] = useState('');
 
     const handleChange = ({ target: { name, value } }) =>
         setUser({ ...user, [name]: value });
 
-    const { signup } = useAuth();
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        signup(user.email, user.password);
+        try {
+            await login(user.email, user.password);
+            console.log('login');
+            navigate('/');
+        } catch (error) {
+            if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+                setError('Contraseña o usuario incorrecto');
+            }
+        }
+
     }
+
 
     return (
         <div>
             <div className="container">
-                <h2>login</h2>
+
+                <h2>Login</h2> {error && <p className='error'>{error}</p>}
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="email">Email:</label>
-                    <input type="text" className="email" name="email" placeholder="email" onChange={handleChange} />
+                    <label htmlFor="email">Email: </label>
+                    <input type="email" className="email" name="email" placeholder="email" onChange={handleChange} />
                     <br />
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password">Password: </label>
                     <input type="password" className="pwd" name="password" placeholder="password" onChange={handleChange} />
                     <br />
-                    <button type="submit">Register</button>
+                    <button type="submit">Login</button>
                 </form>
             </div>
         </div>

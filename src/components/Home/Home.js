@@ -10,6 +10,9 @@ export function Home() {
     const [fs, setFs] = useState([]);
     const [filter, setFilter] = useState('');
 
+
+
+
     function handleFilterChange(e) {
         setFilter(e.target.value);
     }
@@ -22,17 +25,18 @@ export function Home() {
     return (
         <div className='app-container'>
             <img src={image} className='img' alt='' />
-            <Login />
-            <Input
-                click={handleClick}
-                change={handleFilterChange}
-            />
-            {fs.map(f =>
-                <div key={f.dni}>
-                    <div>{f.nombre}</div>
-                    <div>{f.dni}</div>
-                </div>
-            )}
+            <div className='search'>
+                <Input
+                    click={handleClick}
+                    change={handleFilterChange}
+                />
+                {fs.map(f =>
+                    <div key={f.dni}>
+                        <div>{f.nombre}</div>
+                        <div>{f.dni}</div>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
