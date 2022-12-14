@@ -1,16 +1,18 @@
 import './Home.css';
 
 import Input from '../Input/Input';
-import Login from '../Login/Login';
 import dataAPI from '../../dataAPI';
 import image from './blanco.png';
+import { useAuth } from '../../context/authContext';
 import { useState } from 'react';
 
 export function Home() {
     const [fs, setFs] = useState([]);
     const [filter, setFilter] = useState('');
 
+const {login} = useAuth()
 
+console.log(login);
 
 
     function handleFilterChange(e) {

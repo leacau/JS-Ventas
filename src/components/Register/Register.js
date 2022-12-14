@@ -25,7 +25,6 @@ export function Register() {
     return (
         <div>
             <div className="container">
-
                 <h2>Register</h2> {error && <p>QUE ES ESO</p>}
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Email:</label>

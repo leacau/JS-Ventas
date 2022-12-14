@@ -10,7 +10,7 @@ function Input(props) {
             <Form className='form-container'>
                 <Form.Group className="mb-3 form-input" controlId="formBasicEmail">
                     {/* <Form.Label>DNI</Form.Label> */}
-                    <Form.Control onChange={props.change} type="email" placeholder="Ingresa nº de DNI" />
+                    <Form.Control onChange={props.change} type="number" placeholder="Ingresa nº de DNI" />
                     <Form.Text className="text-muted">
                         Sin puntos ni espacios
                     </Form.Text>
